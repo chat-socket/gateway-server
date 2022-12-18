@@ -15,6 +15,11 @@ public class GatewayConfiguration {
                 .path("/websocket/**")
                 .filters(f -> f.rewritePath("/websocket/(?<segment>.*)","/${segment}"))
                 .uri("http://websocket-server:80"))
+            .route(p -> p
+                .path("/auth/**")
+                .filters(f -> f.rewritePath("/auth/(?<segment>.*)","/${segment}"))
+                .uri("http://identity-authorization-server:80"))
+
             .build();
     }
 }
