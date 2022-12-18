@@ -16,7 +16,6 @@ spec:
       labels:
         app: gateway-server
     spec:
-      serviceAccount: gateway-service-account
       containers:
         - name: gateway-server
           image: 'gateway-server:v1'
