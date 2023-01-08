@@ -12,13 +12,12 @@ public class GatewayConfiguration {
     public RouteLocator myRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
             .route(p -> p
-                .path("/websocket/**")
-                .filters(f -> f.rewritePath("/websocket/(?<segment>.*)","/${segment}"))
+                .path("/websocket", "/websocket/**")
+                    .filters(gatewayFilterSpec -> gatewayFilterSpec
+                            .dedupeResponseHeader("Access-Control-Allow-Origin","RETAIN_UNIQUE")
+                            .dedupeResponseHeader("Access-Control-Allow-Credentials","RETAIN_UNIQUE")
+                    )
                 .uri("http://websocket-server:80"))
-            .route(p -> p
-                .path("/auth/**")
-                .filters(f -> f.rewritePath("/auth/(?<segment>.*)","/${segment}"))
-                .uri("http://identity-authorization-server:80"))
 
             .build();
     }
