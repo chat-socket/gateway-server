@@ -21,6 +21,10 @@ spec:
           image: 'gateway-server:v1'
           ports:
             - containerPort: 8080
+              name: ingress-port
+            - containerPort: 8084
+              name: actuator-port
+
           env:
             - name: JAVA_OPTS
               value: "-Xmx64m -Xms32m -Xss256k -XX:CompressedClassSpaceSize=32m -XX:-TieredCompilation"
@@ -30,11 +34,11 @@ spec:
                 command: [ "sh", "-c", "sleep 10" ]
           readinessProbe:
             httpGet:
-              port: 8080
+              port: 8084
               path: /actuator/health/readiness
           livenessProbe:
             httpGet:
-              port: 8080
+              port: 8084
               path: /actuator/health/liveness
           resources:
             requests:
