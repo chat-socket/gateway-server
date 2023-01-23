@@ -1,4 +1,4 @@
-package com.mtvu.gateway;
+package com.mtvu.gatewayserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

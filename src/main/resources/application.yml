@@ -1,48 +1,25 @@
 spring:
   application:
     name: gateway-server
+
   cloud:
     gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-#      globalcors:
-#        cors-configurations:
-#          '[/**]':
-#            allowedOrigins: uiservice
-#            allowedMethods: "*"
-#            allowCredentials: true
-#            maxAge: 7200
-#            allowedHeaders: "*"
-#            exposedHeaders:
-#              - "Access-Control-Allow-Origin"
-#              - "Access-Control-Allow-Methods"
-#              - "Access-Control-Max-Age"
-#              - "Access-Control-Allow-Headers"
-#              - "Cache-Control"
-#              - "Authorization"
-#              - "Content-Type"
-#        routes:
-#          - id: group_management_service_route
-#            uri: http://group-management-service
-#            predicates:
-#              - Path=/group/*
-
-#    kubernetes:
-#      discovery:
-#        filter: "metadata.labels['s1p']"
-
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOrigins: 'http://chat-socket.io'
+            allowedHeaders: '*'
+            allowedMethods: '*'
+            allow-credentials: true
 
 server:
   port: 8080
   shutdown: graceful
 
 management:
+  server:
+    port: 8084
   endpoint:
-    web:
-      exposure:
-        include: "*"
     health:
       probes:
         enabled: true

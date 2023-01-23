@@ -40,7 +40,7 @@ RUN jlink --verbose \
 --no-header-files \
 --no-man-pages \
 --output jre \
---add-modules jdk.crypto.ec,$(cat jre-deps.info)
+--add-modules $(cat jre-deps.info)
 
 
 # take a smaller runtime image for the final output
