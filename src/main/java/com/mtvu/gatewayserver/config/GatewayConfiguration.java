@@ -1,4 +1,4 @@
-package com.mtvu.gateway.config;
+package com.mtvu.gatewayserver.config;
 
 import org.springframework.cloud.gateway.route.RouteLocator;
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;

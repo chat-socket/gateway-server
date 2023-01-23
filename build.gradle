@@ -39,5 +39,6 @@ startScripts {
 }
 
 application {
-  mainClass = 'com.mtvu.gateway.GatewayApplication'
+  mainClass = 'com.mtvu.gatewayserver.GatewayApplication'
 }
+

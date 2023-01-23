@@ -1,4 +1,4 @@
-package com.mtvu.gateway;
+package com.mtvu.gatewayserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
